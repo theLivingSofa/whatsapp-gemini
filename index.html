@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <title>WhatsApp + Gemini Bot</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="A funny Hinglish WhatsApp auto-reply bot powered by Google's Gemini AI."
+  />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Icons (Lucide) -->
+  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <style>
+    /* Fancy background grid + glow */
+    body {
+      background: radial-gradient(circle at top left, #1d4ed8 0, transparent 55%),
+                  radial-gradient(circle at bottom right, #a855f7 0, transparent 55%),
+                  #020617;
+      min-height: 100vh;
+    }
+
+    .glass {
+      backdrop-filter: blur(18px);
+      background: rgba(15, 23, 42, 0.72);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .code-block {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
+
+    .pill {
+      background: linear-gradient(90deg, #22c55e, #22d3ee);
+    }
+
+    .pill-text {
+      background: linear-gradient(90deg, #22c55e, #22d3ee);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* Simple hover float */
+    .floaty:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.75);
+    }
+
+    /* Smooth anchor hover underline */
+    .nav-link {
+      position: relative;
+    }
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #22c55e, #22d3ee);
+      transition: width 0.2s ease;
+    }
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body class="text-slate-50 antialiased">
+
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-40 bg-slate-950/70 backdrop-blur border-b border-slate-800/70">
+    <nav class="max-w-6xl mx-auto px-4 md:px-6 flex items-center justify-between h-16">
+      <div class="flex items-center gap-2">
+        <div class="h-8 w-8 rounded-xl flex items-center justify-center bg-gradient-to-tr from-emerald-500 to-cyan-400">
+          <span class="text-xl">🤖</span>
+        </div>
+        <div class="flex flex-col leading-none">
+          <span class="font-semibold tracking-tight">WhatsApp Gemini Bot</span>
+          <span class="text-[11px] text-slate-400">Hinglish Auto-Reply</span>
+        </div>
+      </div>
+
+      <div class="hidden md:flex items-center gap-6 text-sm text-slate-200">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How it works</a>
+        <a href="#install" class="nav-link">Install</a>
+        <a href="#code" class="nav-link">Code</a>
+      </div>
+
+      <a href="https://github.com/theLivingSofa/whatsapp-gemini"
+         target="_blank"
+         class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-slate-900 border border-slate-700 hover:border-emerald-400/70 hover:text-emerald-300 transition-colors">
+        <span class="i-github h-4 w-4" data-lucide="github"></span>
+        <span>View on GitHub</span>
+      </a>
+    </nav>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="max-w-6xl mx-auto px-4 md:px-6 pt-10 pb-20 space-y-24">
+
+    <!-- HERO -->
+    <section class="grid md:grid-cols-[1.1fr,0.9fr] gap-10 items-center mt-4">
+      <div class="space-y-6">
+        <span class="inline-flex items-center gap-2 pill text-xs font-semibold text-slate-900 px-3 py-1 rounded-full shadow-lg shadow-emerald-500/30">
+          <span>⚡ Real-time</span>
+          <span class="h-1 w-1 rounded-full bg-slate-900"></span>
+          <span>Gemini-powered WhatsApp replies</span>
+        </span>
+
+        <h1 class="text-4xl md:text-5xl font-semibold tracking-tight">
+          Turn your <span class="pill-text">WhatsApp</span> into a
+          <span class="pill-text">Hinglish AI buddy</span> 😎
+        </h1>
+
+        <p class="text-slate-300 text-sm md:text-base max-w-xl">
+          This bot sits on top of WhatsApp Web and auto-replies like an
+          extroverted friend – powered by Google’s Gemini API.
+          Whitelist your close contacts, keep your vibe, and let AI handle
+          “kya scene hai?” all day long.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <a href="#install"
+             class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-gradient-to-r from-emerald-500 to-cyan-400 text-slate-900 shadow-lg shadow-emerald-500/40 hover:opacity-95 transition">
+            <span>Get Started</span>
+            <span data-lucide="flashlight" class="w-4 h-4"></span>
+          </a>
+          <a href="#code"
+             class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium bg-slate-900/70 border border-slate-700 hover:border-cyan-300/70 transition">
+            <span data-lucide="code" class="w-4 h-4"></span>
+            <span>View the Bot Code</span>
+          </a>
+        </div>
+
+        <div class="flex flex-wrap gap-4 text-xs text-slate-400 pt-2">
+          <div class="flex items-center gap-2">
+            <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Runs locally on your laptop</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span data-lucide="shield-check" class="w-3.5 h-3.5"></span>
+            <span>No chat data stored on a server</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right card: Fake chat preview -->
+      <div class="glass rounded-3xl p-5 md:p-6 shadow-2xl floaty transition-transform">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex items-center gap-3">
+            <div class="h-10 w-10 rounded-full bg-gradient-to-tr from-emerald-400 to-cyan-400 flex items-center justify-center">
+              <span class="text-xl">😎</span>
+            </div>
+            <div class="flex flex-col leading-tight">
+              <span class="font-semibold text-sm">RK</span>
+              <span class="text-[11px] text-emerald-400 flex items-center gap-1">
+                <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                online
+              </span>
+            </div>
+          </div>
+          <span class="text-xs text-slate-400">WhatsApp + Gemini Bot</span>
+        </div>
+
+        <div class="space-y-3 text-xs">
+          <div class="flex justify-start">
+            <div class="rounded-2xl rounded-bl-sm bg-slate-800/90 px-3 py-2 max-w-[70%]">
+              <p>Bro, sutta marne chalega? 🚬</p>
+              <p class="text-[10px] text-slate-500 mt-1">5:41 PM</p>
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <div class="rounded-2xl rounded-br-sm bg-emerald-500/90 text-slate-900 px-3 py-2 max-w-[75%] shadow-lg shadow-emerald-500/40">
+              <p>Chal na bhai 😎 main toh ready hi baitha hu. Kidhar milna hai? 😉</p>
+              <p class="text-[10px] text-emerald-900 mt-1 text-right">5:41 PM ✓✓</p>
+            </div>
+          </div>
+          <div class="flex justify-start">
+            <div class="rounded-2xl rounded-bl-sm bg-slate-800/90 px-3 py-2 max-w-[70%]">
+              <p>Tu bot hai ya asli? 👀</p>
+              <p class="text-[10px] text-slate-500 mt-1">5:42 PM</p>
+            </div>
+          </div>
+          <div class="flex justify-end">
+            <div class="rounded-2xl rounded-br-sm bg-emerald-500/90 text-slate-900 px-3 py-2 max-w-[75%] shadow-lg shadow-emerald-500/40">
+              <p>Secret AI dost hu bro 🤫 Hinglish only, tension free replies 24x7 😂</p>
+              <p class="text-[10px] text-emerald-900 mt-1 text-right">5:42 PM ✓✓</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-slate-700/70 flex items-center gap-2 text-[11px] text-slate-400">
+          <span data-lucide="cpu" class="w-3.5 h-3.5"></span>
+          <span>Powered by Gemini · Running locally on Node.js</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section id="features" class="space-y-6">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">
+        Why this bot is actually useful 👇
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        <div class="glass rounded-2xl p-4 md:p-5 floaty transition-transform">
+          <div class="h-10 w-10 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-3">
+            <span data-lucide="message-circle" class="w-5 h-5 text-emerald-400"></span>
+          </div>
+          <h3 class="font-semibold mb-1.5 text-sm">Real Hinglish replies</h3>
+          <p class="text-xs text-slate-300">
+            Replies feel like a real friend texting — casual, witty, and emoji-aware.
+          </p>
+        </div>
+
+        <div class="glass rounded-2xl p-4 md:p-5 floaty transition-transform">
+          <div class="h-10 w-10 rounded-xl bg-cyan-500/20 flex items-center justify-center mb-3">
+            <span data-lucide="shield-check" class="w-5 h-5 text-cyan-300"></span>
+          </div>
+          <h3 class="font-semibold mb-1.5 text-sm">Runs on your machine</h3>
+          <p class="text-xs text-slate-300">
+            No cloud server storing your chats. Everything runs locally using WhatsApp Web automation.
+          </p>
+        </div>
+
+        <div class="glass rounded-2xl p-4 md:p-5 floaty transition-transform">
+          <div class="h-10 w-10 rounded-xl bg-violet-500/20 flex items-center justify-center mb-3">
+            <span data-lucide="sparkles" class="w-5 h-5 text-violet-300"></span>
+          </div>
+          <h3 class="font-semibold mb-1.5 text-sm">Whitelist + filters</h3>
+          <p class="text-xs text-slate-300">
+            You decide who the bot answers and it ignores tiny “ok”, “hmm” type spam messages.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="space-y-6">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">
+        How it works under the hood 🧠
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6 items-start">
+        <ol class="glass rounded-2xl p-5 space-y-4 text-sm">
+          <li class="flex gap-3">
+            <span class="h-6 w-6 rounded-full bg-emerald-500/90 text-slate-950 flex items-center justify-center text-xs font-bold mt-0.5">1</span>
+            <p><strong>WhatsApp-Web.js</strong> launches a controlled Chrome instance and logs into WhatsApp Web using QR code.</p>
+          </li>
+          <li class="flex gap-3">
+            <span class="h-6 w-6 rounded-full bg-cyan-500/90 text-slate-950 flex items-center justify-center text-xs font-bold mt-0.5">2</span>
+            <p>The bot listens for <code class="code-block text-[11px] bg-slate-900/70 px-1 py-0.5 rounded">message</code> events and filters by your whitelist.</p>
+          </li>
+          <li class="flex gap-3">
+            <span class="h-6 w-6 rounded-full bg-violet-500/90 text-slate-950 flex items-center justify-center text-xs font-bold mt-0.5">3</span>
+            <p>Incoming text goes to <strong>Gemini</strong> via the official <code class="code-block text-[11px] bg-slate-900/70 px-1 py-0.5 rounded">@google/genai</code> SDK.</p>
+          </li>
+          <li class="flex gap-3">
+            <span class="h-6 w-6 rounded-full bg-amber-500/90 text-slate-950 flex items-center justify-center text-xs font-bold mt-0.5">4</span>
+            <p>The model returns a Hinglish reply, the bot fakes typing, then sends it back into the chat with a small random delay.</p>
+          </li>
+        </ol>
+
+        <div class="glass rounded-2xl p-5 space-y-3">
+          <p class="text-xs uppercase tracking-[0.2em] text-slate-400">Tech stack</p>
+          <div class="flex flex-wrap gap-2 text-xs">
+            <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-emerald-500/60">Node.js</span>
+            <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-cyan-400/60">whatsapp-web.js</span>
+            <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-violet-400/60">@google/genai</span>
+            <span class="px-3 py-1 rounded-full bg-slate-900/80 border border-slate-500/60">Puppeteer</span>
+          </div>
+          <p class="text-xs text-slate-300 pt-3">
+            Built to be fully local, hackable and easy to extend — add personalities, commands,
+            logging or more models with minimal changes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INSTALL SECTION -->
+    <section id="install" class="space-y-6">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">
+        Install & run locally in a few commands 💻
+      </h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-5 space-y-4 code-block text-[13px]">
+          <p class="text-xs text-slate-400">1. Clone & install</p>
+          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+git clone https://github.com/YOUR_USERNAME/wp-gemini-bot.git
+cd wp-gemini-bot
+npm install
+          </pre>
+
+          <p class="text-xs text-slate-400">2. Create your config</p>
+          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+cd src
+cp config.example.json config.json
+          </pre>
+
+          <p class="text-xs text-slate-400">3. Fill your details</p>
+          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+{
+  "apiKey": "YOUR_GEMINI_API_KEY",
+  "allowedContacts": ["919123456789"],
+  "ignoreShort": true
+}
+          </pre>
+
+          <p class="text-xs text-slate-400">4. Run the bot</p>
+          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+npm start
+          </pre>
+        </div>
+
+        <div class="glass rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <h3 class="font-semibold mb-2 text-sm">What you’ll see</h3>
+            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <li>QR code in the terminal for WhatsApp Web login</li>
+              <li>Chromium window labelled “controlled by automated software”</li>
+              <li>Console logs like <code class="code-block bg-slate-900/70 px-1 py-0.5 rounded">📩 919123456789: "kya kar raha bro?"</code></li>
+              <li>Bot replying back with Hinglish messages from Gemini</li>
+            </ul>
+          </div>
+
+          <div class="mt-6 text-[11px] text-slate-400 border-t border-slate-700/60 pt-3">
+            ⚠ Use on your own account only. This is an experimental project built for fun & learning.
+            Don’t use it for spam or anything shady.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE SNIPPET -->
+    <section id="code" class="space-y-4">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">
+        Core bot logic (simplified) 🧾
+      </h2>
+
+      <div class="glass rounded-2xl p-5 code-block text-[12px] overflow-x-auto">
+<pre>
+// MAIN LOGIC — only incoming messages
+client.on('message', async (msg) => {
+  if (msg.fromMe) return;
+
+  const from = msg.from;
+  const text = msg.body.trim();
+  const contact = await msg.getContact();
+  const number = contact.number;
+
+  // Whitelist by phone number
+  if (!config.allowedContacts.includes(number)) return;
+
+  if (config.ignoreShort && text.length <= 2) return;
+
+  const chat = await msg.getChat();
+  await chat.sendStateTyping();
+
+  const reply = await generateReply(text);
+
+  // Fix status/broadcast to real chat JID if needed
+  let target = from;
+  if (!target.endsWith("@c.us")) {
+    const userId = contact.id._serialized;
+    if (userId.endsWith("@c.us")) target = userId;
+  }
+
+  await client.sendMessage(target, reply);
+});
+</pre>
+      </div>
+
+      <p class="text-xs text-slate-400">
+        Full source code is available on GitHub — this is just the important part that wires WhatsApp to Gemini.
+      </p>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-800/80 bg-slate-950/80">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-slate-400">
+      <span>Made with ☕, Node.js and a lot of “kya scene hai?”</span>
+      <span>Star the repo if you like it ⭐</span>
+    </div>
+  </footer>
+
+  <script>
+    // init Lucide icons
+    lucide && lucide.createIcons();
+  </script>
+</body>
+</html>
