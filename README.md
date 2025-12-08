@@ -38,7 +38,7 @@
 ### ▶ Step 1 — Clone the Repo
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/wp-gemini-bot.git
+git clone https://github.com/thelivingsofa/whatsapp-gemini.git
 cd wp-gemini-bot
 ```
 
