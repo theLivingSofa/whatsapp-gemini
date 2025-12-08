@@ -1,125 +1,135 @@
 
 <h1 align="center">🤖 WhatsApp + Gemini Auto-Reply Bot</h1>
 <p align="center">
-  <strong>A funny, Hinglish WhatsApp auto-reply bot powered by Google's Gemini AI</strong><br>
-  Built using <code>whatsapp-web.js</code> + <code>@google/genai</code>
+  <strong>Turn your WhatsApp into a Hinglish AI buddy (Gemini-powered)</strong><br>
+  Auto-replies, typing simulation, whitelist, emojis — full swag 😎
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Node.js-18+-green?style=for-the-badge">
-  <img src="https://img.shields.io/badge/Gemini_API-Required-blue?style=for-the-badge">
-  <img src="https://img.shields.io/badge/WhatsApp-Web-orange?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Node.js-18%2B-22c55e?style=for-the-badge&logo=node.js&logoColor=white">
+  <img src="https://img.shields.io/badge/Gemini_API-Required-38bdf8?style=for-the-badge">
+  <img src="https://img.shields.io/badge/WhatsApp-Web-25D366?style=for-the-badge&logo=whatsapp&logoColor=white">
 </p>
 
 ---
 
 ## ✨ Features
 
-✔ Auto-reply to WhatsApp messages  
-✔ Hinglish fun personality 🤩  
-✔ Google Gemini powered 🧠  
-✔ Typing indicator simulation ⌨️  
-✔ Configurable whitelist for contacts  
-✔ Ignores very short spam messages 🙄  
-✔ Runs directly in Chrome automation  
+- 💬 Auto-replies like a funny, extroverted Hinglish dost
+- 🧠 Uses Google's Gemini (official @google/genai)
+- ⌨️ Shows typing before responding
+- 🧾 Whitelist: replies only to selected numbers
+- 🙄 Ignores short spam (ok, hmm, 👍 etc)
+- 🖥 Runs on your laptop using WhatsApp Web automation
 
 ---
 
-## 📌 Requirements
+## 🚀 Quick Setup Guide
 
-- Node.js 18+
-- Chrome installed
-- A valid Gemini API key (free plan works)
+> YouTube setup style — super simple 👇
 
----
-
-## 🚀 Setup Instructions (YouTube style guide)
-
-### ▶ Step 1 — Clone the Repo
+### 1️⃣ Clone the repo
 
 ```bash
 git clone https://github.com/thelivingsofa/whatsapp-gemini.git
+cd whatsapp-gemini
 ```
 
-### ▶ Step 2 — Install Dependencies
+### 2️⃣ Install dependencies
 
 ```bash
 npm install
 ```
 
-> ⚠ Phone number should be saved without + symbol  
-> Example: 91 + 9123456789 → `919123456789`
+> ⚠ Phone numbers must be saved **without +**  
+> Example → `+91 9123456789` → `919123456789`
 
----
+### 3️⃣ Add your config
 
-### ▶ Step 3 — Run the Bot
+```bash
+cd src
+cp config.example.json config.json
+```
+
+Fill it like:
+
+```json
+{
+  "apiKey": "YOUR_GEMINI_API_KEY",
+  "allowedContacts": ["919123456789"],
+  "ignoreShort": true
+}
+```
+
+### 4️⃣ Run the bot
 
 ```bash
 node src/bot.js
 ```
 
-Scan the QR code in your console.
+Scan the QR on your phone — that's it!
 
-> Keep WhatsApp Web window always open 👀
+> Keep the browser running or bot will stop ⚠
 
 ---
 
 ## 🧠 How it Works
 
-1. Bot listens for new incoming messages  
-2. If sender’s number is in whitelist → process  
-3. Gemini generates Hinglish casual reply  
-4. WhatsApp-Web.js sends back automatically  
+```
+New WhatsApp Message → Check whitelist → Send to Gemini →
+Gemini generates Hinglish reply → Bot replies back with typing status 😎
+```
 
 ---
 
-## 🧩 Folder Structure
+## 📁 Project Structure
 
-```
-wp-gemini-bot/
+```text
+whatsapp-gemini/
 │
 ├─ src/
-│  ├─ bot.js
-|  ├─ config.json          ← your API key (🚫 do NOT commit)
-|  ├─ config.example.json  ← template (✔ commit)
+│  ├─ bot.js                # main bot
+│  ├─ config.json           # your API key + settings (🚫 do NOT share)
+│  ├─ config.example.json   # safe template (✔ commit)
 │
-├─ .gitignore
+├─ .gitignore               # protects your WhatsApp auth + keys
 ├─ package.json
 ├─ README.md
 ```
 
 ---
 
-## ⚠️ IMPORTANT SECURITY NOTE
+## 🔐 Private & Secure
 
-Never upload:
+- No server
+- No chat logs stored
+- WhatsApp auth stays local using LocalAuth
+- Fully open source
 
-- `config.json` (API key)
-- `.wwebjs_auth/` (your WhatsApp login)
+Never commit:
+
+- `src/config.json`
+- `.wwebjs_auth/`
 - `.wwebjs_cache/`
-
-These are protected using `.gitignore` in this repo.
 
 ---
 
-## 💪 Customization
+## 💡 Future Ideas
 
 | Feature | Status |
 |--------|--------|
-Multiple personalities | Coming Soon 😍 |
-Slash Commands `/stop` `/start` | Coming Soon 🛠 |
-Group support | Optional |
-Logging chat history | Available on request |
-
-Want more? Just open an issue ☺️
+Multiple personalities | Soon 🚀 |
+Slash commands `/stop` `/start` | In progress |
+Group support | Optional limited |
+Conversation log UI | Possible later |
 
 ---
 
-## 🤝 Contributing
+## 🤝 Contribute
 
-Pull requests are welcome!  
-For major changes, open an issue first.
+PRs and ideas are always welcome!  
+Create issues to suggest upgrades 🙂  
 
 ---
 
-### ⭐ If you like this project, don't forget to star the repo!
+### ⭐ Like this project? Support by starring the repo!
