@@ -1,0 +1,7 @@
+{
+  "apiKey": "ENTER_YOUR_API_KEY",
+  "allowedContacts": [
+    "1234567890"
+  ],
+  "ignoreShort": true
+}
