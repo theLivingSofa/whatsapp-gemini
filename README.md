@@ -38,8 +38,7 @@
 ### ▶ Step 1 — Clone the Repo
 
 ```bash
-git clone https://github.com/YOUR_GITHUB_USERNAME/wp-gemini-bot.git
-cd wp-gemini-bot
+git clone https://github.com/thelivingsofa/whatsapp-gemini.git
 ```
 
 ### ▶ Step 2 — Install Dependencies
@@ -48,32 +47,12 @@ cd wp-gemini-bot
 npm install
 ```
 
-### ▶ Step 3 — Create Your Config
-
-Copy this file:
-
-```bash
-cp config.example.json config.json
-```
-
-Open `config.json` and fill:
-
-```json
-{
-  "apiKey": "YOUR_GEMINI_API_KEY",
-  "allowedContacts": [
-    "919123456789"
-  ],
-  "ignoreShort": true
-}
-```
-
 > ⚠ Phone number should be saved without + symbol  
 > Example: 91 + 9123456789 → `919123456789`
 
 ---
 
-### ▶ Step 4 — Run the Bot
+### ▶ Step 3 — Run the Bot
 
 ```bash
 node src/bot.js
@@ -101,9 +80,9 @@ wp-gemini-bot/
 │
 ├─ src/
 │  ├─ bot.js
+|  ├─ config.json          ← your API key (🚫 do NOT commit)
+|  ├─ config.example.json  ← template (✔ commit)
 │
-├─ config.json          ← your API key (🚫 do NOT commit)
-├─ config.example.json  ← template (✔ commit)
 ├─ .gitignore
 ├─ package.json
 ├─ README.md
