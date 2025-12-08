@@ -93,10 +93,11 @@
         <a href="#code" class="nav-link">Code</a>
       </div>
 
-      <a href="https://github.com/theLivingSofa/whatsapp-gemini"
+      <!-- Show CTA on mobile too -->
+      <a href="https://github.com/thelivingsofa/whatsapp-gemini"
          target="_blank"
-         class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-slate-900 border border-slate-700 hover:border-emerald-400/70 hover:text-emerald-300 transition-colors">
-        <span class="i-github h-4 w-4" data-lucide="github"></span>
+         class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium bg-slate-900 border border-slate-700 hover:border-emerald-400/70 hover:text-emerald-300 transition-colors">
+        <span data-lucide="github" class="h-4 w-4"></span>
         <span>View on GitHub</span>
       </a>
     </nav>
@@ -252,7 +253,7 @@
         <ol class="glass rounded-2xl p-5 space-y-4 text-sm">
           <li class="flex gap-3">
             <span class="h-6 w-6 rounded-full bg-emerald-500/90 text-slate-950 flex items-center justify-center text-xs font-bold mt-0.5">1</span>
-            <p><strong>WhatsApp-Web.js</strong> launches a controlled Chrome instance and logs into WhatsApp Web using QR code.</p>
+            <p><strong>whatsapp-web.js</strong> launches a controlled Chrome instance and logs into WhatsApp Web using QR code.</p>
           </li>
           <li class="flex gap-3">
             <span class="h-6 w-6 rounded-full bg-cyan-500/90 text-slate-950 flex items-center justify-center text-xs font-bold mt-0.5">2</span>
@@ -285,78 +286,76 @@
     </section>
 
     <!-- INSTALL SECTION -->
-   <!-- INSTALL SECTION -->
-<section id="install" class="space-y-6">
-  <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">
-    Install & run locally in a few commands 💻
-  </h2>
+    <section id="install" class="space-y-6">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">
+        Install & run locally in a few commands 💻
+      </h2>
 
-  <div class="grid md:grid-cols-2 gap-6">
-    <div class="glass rounded-2xl p-5 space-y-4 code-block text-[13px]">
-      <p class="text-xs text-slate-400">1. Clone & install</p>
-      <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
-git clone <br>https://github.com/thelivingsofa/whatsapp-gemini.git
-cd wp-gemini-bot
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-5 space-y-4 code-block text-[13px]">
+          <p class="text-xs text-slate-400">1. Clone & install</p>
+          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+git clone https://github.com/thelivingsofa/whatsapp-gemini.git
+cd whatsapp-gemini
 npm install
-      </pre>
+          </pre>
 
-      <p class="text-xs text-slate-400">2. Create your config</p>
-      <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+          <p class="text-xs text-slate-400">2. Create your config</p>
+          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
 cd src
 cp config.example.json config.json
-      </pre>
+          </pre>
 
-      <p class="text-xs text-slate-400">3. Fill your details</p>
-      <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+          <p class="text-xs text-slate-400">3. Fill your details</p>
+          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
 {
   "apiKey": "YOUR_GEMINI_API_KEY",
   "allowedContacts": ["919123456789"],
   "ignoreShort": true
 }
-      </pre>
+          </pre>
 
-      <p class="text-xs text-slate-400">4. Run the bot</p>
-      <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+          <p class="text-xs text-slate-400">4. Run the bot</p>
+          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
 npm start
-      </pre>
-    </div>
+          </pre>
+        </div>
 
-    <!-- RIGHT SIDE -->
-    <div class="glass rounded-2xl p-5 flex flex-col justify-between">
-      <div>
-        <h3 class="font-semibold mb-2 text-sm">What you’ll see</h3>
-        <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
-          <li>QR code in the terminal for WhatsApp Web login</li>
-          <li>Chromium window labelled “controlled by automated software”</li>
-          <li>Console logs like <code class="code-block bg-slate-900/70 px-1 py-0.5 rounded">📩 919123456789: "kya kar raha bro?"</code></li>
-          <li>Bot replying back with Hinglish messages from Gemini</li>
-        </ul>
+        <!-- RIGHT SIDE -->
+        <div class="glass rounded-2xl p-5 flex flex-col justify-between">
+          <div>
+            <h3 class="font-semibold mb-2 text-sm">What you’ll see</h3>
+            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+              <li>QR code in the terminal for WhatsApp Web login</li>
+              <li>Chromium window labelled “controlled by automated software”</li>
+              <li>Console logs like <code class="code-block bg-slate-900/70 px-1 py-0.5 rounded">📩 919123456789: "kya kar raha bro?"</code></li>
+              <li>Bot replying back with Hinglish messages from Gemini</li>
+            </ul>
 
-        <!-- 📁 FILE STRUCTURE inserted here -->
-        <div class="mt-5 text-xs">
-          <pre class="whitespace-pre bg-slate-950/70 rounded-xl p-3 border border-slate-700 text-slate-300">
-wp-gemini-bot/
+            <!-- 📁 FILE STRUCTURE -->
+            <div class="mt-5 text-xs overflow-x-auto">
+              <pre class="whitespace-pre bg-slate-950/70 rounded-xl p-3 border border-slate-700 text-slate-300">
+whatsapp-gemini/
 │
 └─ src/
    ├─ bot.js
-   ├─ config.json        ← your API key (🚫 do NOT commit)
-   ├─ config.example.json← template (✔ commit)
+   ├─ config.json         ← your API key (🚫 do NOT commit)
+   ├─ config.example.json ← template (✔ commit)
 │
 ├─ .gitignore
 ├─ package.json
 ├─ README.md
-          </pre>
+              </pre>
+            </div>
+          </div>
+
+          <div class="mt-6 text-[11px] text-slate-400 border-t border-slate-700/60 pt-3">
+            ⚠ Use on your own account only. This is an experimental project built for fun & learning.
+            Don’t use it for spam or anything shady.
+          </div>
         </div>
       </div>
-
-      <div class="mt-6 text-[11px] text-slate-400 border-t border-slate-700/60 pt-3">
-        ⚠ Use on your own account only. This is an experimental project built for fun & learning.
-        Don’t use it for spam or anything shady.
-      </div>
-    </div>
-  </div>
-</section>
-
+    </section>
 
     <!-- CODE SNIPPET -->
     <section id="code" class="space-y-4">
@@ -412,14 +411,10 @@ client.on('message', async (msg) => {
   </footer>
 
   <script>
-    // init Lucide icons
-    lucide && lucide.createIcons();
+    if (window.lucide && typeof lucide.createIcons === 'function') {
+      lucide.createIcons();
+    }
   </script>
-  <script>
-  if (window.lucide) {
-    lucide.createIcons();
-  }
-</script>
 
 </body>
 </html>
