@@ -8,12 +8,12 @@
     name="description"
     content="A funny Hinglish WhatsApp auto-reply bot powered by Google's Gemini AI."
   />
-
+    
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Icons (Lucide) -->
-  <script defer src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
     /* Fancy background grid + glow */
@@ -82,7 +82,7 @@
         </div>
         <div class="flex flex-col leading-none">
           <span class="font-semibold tracking-tight">WhatsApp Gemini Bot</span>
-          <span class="text-[11px] text-slate-400">Hinglish Auto-Reply</span>
+          <span class="text-[11px] text-slate-400">with ❤️ by theLivingSofa</span>
         </div>
       </div>
 
@@ -285,59 +285,78 @@
     </section>
 
     <!-- INSTALL SECTION -->
-    <section id="install" class="space-y-6">
-      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">
-        Install & run locally in a few commands 💻
-      </h2>
+   <!-- INSTALL SECTION -->
+<section id="install" class="space-y-6">
+  <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">
+    Install & run locally in a few commands 💻
+  </h2>
 
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="glass rounded-2xl p-5 space-y-4 code-block text-[13px]">
-          <p class="text-xs text-slate-400">1. Clone & install</p>
-          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
-git clone https://github.com/YOUR_USERNAME/wp-gemini-bot.git
+  <div class="grid md:grid-cols-2 gap-6">
+    <div class="glass rounded-2xl p-5 space-y-4 code-block text-[13px]">
+      <p class="text-xs text-slate-400">1. Clone & install</p>
+      <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+git clone <br>https://github.com/thelivingsofa/whatsapp-gemini.git
 cd wp-gemini-bot
 npm install
-          </pre>
+      </pre>
 
-          <p class="text-xs text-slate-400">2. Create your config</p>
-          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+      <p class="text-xs text-slate-400">2. Create your config</p>
+      <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
 cd src
 cp config.example.json config.json
-          </pre>
+      </pre>
 
-          <p class="text-xs text-slate-400">3. Fill your details</p>
-          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+      <p class="text-xs text-slate-400">3. Fill your details</p>
+      <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
 {
   "apiKey": "YOUR_GEMINI_API_KEY",
   "allowedContacts": ["919123456789"],
   "ignoreShort": true
 }
-          </pre>
+      </pre>
 
-          <p class="text-xs text-slate-400">4. Run the bot</p>
-          <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
+      <p class="text-xs text-slate-400">4. Run the bot</p>
+      <pre class="whitespace-pre-wrap bg-slate-950/80 rounded-xl p-3 border border-slate-800">
 npm start
+      </pre>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="glass rounded-2xl p-5 flex flex-col justify-between">
+      <div>
+        <h3 class="font-semibold mb-2 text-sm">What you’ll see</h3>
+        <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
+          <li>QR code in the terminal for WhatsApp Web login</li>
+          <li>Chromium window labelled “controlled by automated software”</li>
+          <li>Console logs like <code class="code-block bg-slate-900/70 px-1 py-0.5 rounded">📩 919123456789: "kya kar raha bro?"</code></li>
+          <li>Bot replying back with Hinglish messages from Gemini</li>
+        </ul>
+
+        <!-- 📁 FILE STRUCTURE inserted here -->
+        <div class="mt-5 text-xs">
+          <pre class="whitespace-pre bg-slate-950/70 rounded-xl p-3 border border-slate-700 text-slate-300">
+wp-gemini-bot/
+│
+└─ src/
+   ├─ bot.js
+   ├─ config.json        ← your API key (🚫 do NOT commit)
+   ├─ config.example.json← template (✔ commit)
+│
+├─ .gitignore
+├─ package.json
+├─ README.md
           </pre>
-        </div>
-
-        <div class="glass rounded-2xl p-5 flex flex-col justify-between">
-          <div>
-            <h3 class="font-semibold mb-2 text-sm">What you’ll see</h3>
-            <ul class="text-xs text-slate-300 space-y-2 list-disc list-inside">
-              <li>QR code in the terminal for WhatsApp Web login</li>
-              <li>Chromium window labelled “controlled by automated software”</li>
-              <li>Console logs like <code class="code-block bg-slate-900/70 px-1 py-0.5 rounded">📩 919123456789: "kya kar raha bro?"</code></li>
-              <li>Bot replying back with Hinglish messages from Gemini</li>
-            </ul>
-          </div>
-
-          <div class="mt-6 text-[11px] text-slate-400 border-t border-slate-700/60 pt-3">
-            ⚠ Use on your own account only. This is an experimental project built for fun & learning.
-            Don’t use it for spam or anything shady.
-          </div>
         </div>
       </div>
-    </section>
+
+      <div class="mt-6 text-[11px] text-slate-400 border-t border-slate-700/60 pt-3">
+        ⚠ Use on your own account only. This is an experimental project built for fun & learning.
+        Don’t use it for spam or anything shady.
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- CODE SNIPPET -->
     <section id="code" class="space-y-4">
@@ -396,5 +415,11 @@ client.on('message', async (msg) => {
     // init Lucide icons
     lucide && lucide.createIcons();
   </script>
+  <script>
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+</script>
+
 </body>
 </html>
